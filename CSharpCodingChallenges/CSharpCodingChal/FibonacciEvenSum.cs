@@ -8,39 +8,49 @@ namespace CSharpCodingChal
 {
     class FibonacciEvenSum
     {
+
         static void Main(string[] args)
         {
             List<long> sum = new List<long>();
 
+            int first = 0;
 
-            for (int i = 0; i < 39; i++)
+            for (int i = 1; i < 4000000; i+=first)
             {
-                long result = Fibonacci(i);
-                //*Console.WriteLine(Fibonacci(i))*;
-                sum.Add(result);
-            }
-
-            Console.WriteLine(sum[sum.Count - 1]);
-        }
-
-        private static long Fibonacci(int n)
-        {
-            long first = 0;
-            long second = 1;
-
-            long evens = 0;
-
-            for (int i = 0; i < n; i++)
-            {
-                long next = first;
-                first = second;
-                second = next + second;
-                if (first % 2 == 0)
+                //Console.WriteLine(i);
+                if (i % 2 == 0)
                 {
-                    evens += first;
+                    sum.Add(i);
                 }
+                first = i - first;
+                //Console.WriteLine(Fibonacci(i));
             }
-            return evens;
+
+            Console.WriteLine($"The total sum is {sum.Sum()}");
+
+
+
+
+
+
+            /*
+             * class code VVV
+             */
+
+            //int j = 0;
+            //int sum = 0;
+
+            //for (int i = 1; i < 4000000; i += j)
+            //{
+            //    Console.WriteLine(i);
+            //    if (i % 2 == 0)
+            //    {
+            //        sum += i;
+            //    }
+            //    j = i - j;
+            //}
+
+            //Console.WriteLine($"The sum of all even values is {sum}");
         }
     }
 }
